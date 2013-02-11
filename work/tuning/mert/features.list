@@ -1,0 +1,14 @@
+Distortion d 0.300000
+LexicalReordering_wbe-msd-bidirectional-fe-allff d 0.300000
+LexicalReordering_wbe-msd-bidirectional-fe-allff d 0.300000
+LexicalReordering_wbe-msd-bidirectional-fe-allff d 0.300000
+LexicalReordering_wbe-msd-bidirectional-fe-allff d 0.300000
+LexicalReordering_wbe-msd-bidirectional-fe-allff d 0.300000
+LexicalReordering_wbe-msd-bidirectional-fe-allff d 0.300000
+LM lm 0.500000
+WordPenalty w -1.000000
+PhraseModel tm 0.200000
+PhraseModel tm 0.200000
+PhraseModel tm 0.200000
+PhraseModel tm 0.200000
+PhraseModel tm 0.200000

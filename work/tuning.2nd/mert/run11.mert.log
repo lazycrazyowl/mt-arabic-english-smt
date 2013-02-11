@@ -1,0 +1,42 @@
+shard_size = 0 shard_count = 0
+Seeding random numbers with 11000
+name: case value: true
+Data::m_score_type BLEU
+Data::Scorer type from Scorer: BLEU
+Loading Data from: run1.scores.dat and run1.features.dat
+loading feature data from run1.features.dat
+loading score data from run1.scores.dat
+Loading Data from: run2.scores.dat and run2.features.dat
+loading feature data from run2.features.dat
+loading score data from run2.scores.dat
+Loading Data from: run3.scores.dat and run3.features.dat
+loading feature data from run3.features.dat
+loading score data from run3.scores.dat
+Loading Data from: run4.scores.dat and run4.features.dat
+loading feature data from run4.features.dat
+loading score data from run4.scores.dat
+Loading Data from: run5.scores.dat and run5.features.dat
+loading feature data from run5.features.dat
+loading score data from run5.scores.dat
+Loading Data from: run6.scores.dat and run6.features.dat
+loading feature data from run6.features.dat
+loading score data from run6.scores.dat
+Loading Data from: run7.scores.dat and run7.features.dat
+loading feature data from run7.features.dat
+loading score data from run7.scores.dat
+Loading Data from: run8.scores.dat and run8.features.dat
+loading feature data from run8.features.dat
+loading score data from run8.scores.dat
+Loading Data from: run9.scores.dat and run9.features.dat
+loading feature data from run9.features.dat
+loading score data from run9.scores.dat
+Loading Data from: run10.scores.dat and run10.features.dat
+loading feature data from run10.features.dat
+loading score data from run10.scores.dat
+Loading Data from: run11.scores.dat and run11.features.dat
+loading feature data from run11.features.dat
+loading score data from run11.scores.dat
+Data loaded : [Wall 0.855434 CPU 0.851721] seconds.
+Creating a pool of 1 threads
+Best point: 0.0658774 0.127998 0.0186454 0.206689 0.111364 0.0211324 -0.00751955 0.132316 -0.14905 0.0343976 0.0766697 0.0267567 0.0128293 0.00875491  => 0.170848
+Stopping... : [Wall 51.7593 CPU 51.4386] seconds.

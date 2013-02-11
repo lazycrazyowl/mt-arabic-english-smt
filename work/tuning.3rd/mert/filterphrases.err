@@ -1,0 +1,7 @@
+Executing: mkdir -p /Users/aiman/Development/mt-arabic-english-smt/work/tuning/mert/filtered
+Considering factor 0
+Considering factor 0
+filtering /Users/aiman/Development/mt-arabic-english-smt/work/model/phrase-table.gz -> /Users/aiman/Development/mt-arabic-english-smt/work/tuning/mert/filtered/phrase-table.0-0.1.1.gz...
+93886 of 1711534 phrases pairs used (5.49%) - note: max length 10
+filtering /Users/aiman/Development/mt-arabic-english-smt/work/model/reordering-table.wbe-msd-bidirectional-fe.gz -> /Users/aiman/Development/mt-arabic-english-smt/work/tuning/mert/filtered/reordering-table.wbe-msd-bidirectional-fe...
+93886 of 1711534 phrases pairs used (5.49%) - note: max length 10

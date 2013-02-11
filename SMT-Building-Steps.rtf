@@ -1,0 +1,111 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf470
+{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red45\green5\blue21;}
+\margl1440\margr1440\vieww28600\viewh14660\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs28 \cf0 ### Generate LM ###\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 /Users/aiman/tools/srilm/bin/macosx/ngram-count -order 3 -interpolate -kndiscount -unk -text 
+\f1\b data/LM/LM_data+Train_data.en 
+\f0\b0 -lm 
+\f1\b work/LM/LM_data+Train_data.en.lm
+\f0\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+### Train ###\
+(Cleaning step omitted) \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 $SCRIPTS_ROOTDIR/training/train-model.perl --external-bin-dir=/Users/aiman/tools/bin -scripts-root-dir /Users/aiman/tools/mosesdecoder/scripts -root-dir /Users/aiman/Development/mt-arabic-english-smt/work -corpus data/Train/split/Train_data.1.clean -f ar -e en -alignment grow-diag-final-and -reordering msd-bidirectional-fe -lm 0:3:/Users/aiman/Development/mt-arabic-english-smt/work/LM/LM_data.1.en.lm\
+\
+-------------------------------\
+\
+/usr/bin/time $SCRIPTS_ROOTDIR/training/train-model.perl -external-bin-dir /Users/aiman/tools/bin -root-dir /Users/aiman/Development/mt-arabic-english-smt/work -corpus 
+\f1\b data/Train/split/Train_data.1.clean
+\f0\b0  -f ar -e en -alignment grow-diag-final-and -reordering msd-bidirectional-fe -lm 0:3:/Users/aiman/Development/mt-arabic-english-smt/work/LM/LM_data+Train_data.en.lm\
+\
+	683.31 real       690.40 user         4.76 sys\
+\
+-------------------------------\
+\
+/usr/bin/time $SCRIPTS_ROOTDIR/training/train-model.perl -external-bin-dir /Users/aiman/tools/bin -root-dir /Users/aiman/Development/mt-arabic-english-smt/work -corpus 
+\f1\b data/Train/Train_data.half.clean
+\f0\b0  -f ar -e en -alignment grow-diag-final-and -reordering msd-bidirectional-fe -lm 0:3:/Users/aiman/Development/mt-arabic-english-smt/work/LM/LM_data+Train_data.en.lm\
+\
+	1571.49 real      1591.52 user        10.13 sys\
+\
+-------------------------------\
+\
+/usr/bin/time $SCRIPTS_ROOTDIR/training/train-model.perl -external-bin-dir /Users/aiman/tools/bin -root-dir /Users/aiman/Development/mt-arabic-english-smt/work -corpus 
+\f1\b data/Train/Train_data.clean
+\f0\b0  -f ar -e en -alignment grow-diag-final-and -reordering msd-bidirectional-fe -lm 0:3:/Users/aiman/Development/mt-arabic-english-smt/work/LM/LM_data+Train_data.en.lm\
+\
+     3727.62 real      3534.11 user        21.39 sys\
+\
+\
+\
+\
+### Tune ###\
+/usr/bin/time /Users/aiman/tools/mosesdecoder/scripts/training/mert-moses.pl data/Tune/Tune_data.mt04.50.ar data/Tune/Tune_data.mt04.50.en /Users/aiman/tools/mosesdecoder/bin/moses work/model/moses.ini --working-dir /Users/aiman/Development/mt-arabic-english-smt/work/tuning/mert --rootdir /Users/aiman/tools/mosesdecoder/scripts --decoder-flags "-v 0" --mertdir /Users/aiman/tools/mosesdecoder/mert --predictable-seed\
+\
+      911.23 real       899.18 user        10.52 sys\
+\
+      363.26 real       360.23 user         5.02 sys\
+\
+     1440.64 real      1427.58 user        16.36 sys\
+\
+\
+# Use tuned weights\
+/Users/aiman/tools/mosesdecoder/scripts/reuse-weights.perl work/tuning/mert/moses.ini < work/model/moses.ini > work/tuning/moses-tuned.ini\
+\
+### Tailor Model to Test data\
+/usr/bin/time /Users/aiman/tools/mosesdecoder/scripts/training/filter-model-given-input.pl /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/filtered /Users/aiman/Development/mt-arabic-english-smt/work/tuning/moses-tuned.ini /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.src.ar\
+	3.51 real         4.75 user         0.13 sys\
+	17.61 real        23.81 user         0.56 sys\
+\
+### Decode ####\
+/usr/bin/time /Users/aiman/tools/mosesdecoder/bin/moses -config /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/filtered/moses.ini -input-file /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.src.ar 1> /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output 2> /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/tuned-filtered.decode.out\
+\
+41.25 real        40.99 user         0.21 sys\
+\
+\
+### Evaluate Output ###\
+# Convert output to XML\
+/Users/aiman/tools/mosesdecoder/scripts/wrap-xml.perl 
+\f1\b \cf2 /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.ref.ar.xml
+\f0\b0  
+\f1\b en \cf0 half-data-all
+\f0\b0  < /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output > /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output.sgm\
+\
+# Compute Score\
+/Users/aiman/tools/mosesdecoder/scripts/generic/mteval-v11b.pl -s /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.src.ar.xml -r /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.ref.en.xml -t /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output.sgm -c\
+\
+\
+\
+\
+###########################\
+# Recaser\
+\
+# Train Recaser\
+/usr/bin/time /Users/aiman/tools/mosesdecoder/scripts/recaser/train-recaser.perl -train-script $SCRIPTS_ROOTDIR/training/train-model.perl -ngram-count /Users/aiman/tools/srilm/bin/macosx/ngram-count -corpus data/LM/LM_data+Train_data.tok.en -dir /Users/aiman/Development/mt-arabic-english-smt/work/recaser -scripts-root-dir $SCRIPTS_ROOTDIR\
+\
+      163.53 real       171.29 user         2.69 sys\
+\
+# Recase\
+/usr/bin/time $SCRIPTS_ROOTDIR/recaser/recase.perl -model work/recaser/moses.ini -in work/evaluation/Eval.tuned-filtered.output -moses /Users/aiman/tools/mosesdecoder/bin/moses > work/evaluation/Eval.tuned-filtered.output.recased\
+\
+	163.53 real       171.29 user         2.69 sys\
+\
+# Detokenize\
+/usr/bin/time $SCRIPTS_ROOTDIR/tokenizer/detokenizer.perl -l en < work/evaluation/Eval.tuned-filtered.output.recased > work/evaluation/Eval.tuned-filtered.output.detokenized\
+\
+# Evaluate detoknized\
+\
+/Users/aiman/tools/mosesdecoder/scripts/wrap-xml.perl 
+\f1\b \cf2 /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.ref.ar.xml
+\f0\b0  
+\f1\b en \cf0 improved
+\f0\b0  < /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output.detokenized > /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output.detokenized.sgm\
+\
+/Users/aiman/tools/mosesdecoder/scripts/generic/mteval-v11b.pl -s /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.src.ar.xml -r /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.ref.en.xml -t /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output.detokenized.sgm -c}

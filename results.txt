@@ -1,0 +1,162 @@
+##################################################################
+# First Attempt: Baseline with Quarter Data
+# 25% of Train Data and 25% of Language Model Data
+##################################################################
+
+MT evaluation scorer began on 2013 Feb 10 at 15:05:18
+command line:  /Users/aiman/tools/mosesdecoder/scripts/generic/mteval-v11b.pl -s /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.src.ar.xml -r /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.ref.en.xml -t /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output.sgm -c
+  Evaluation of Arabic-to-English translation using:
+    src set "mt05_arabic_evlset_v0" (4 docs, 48 segs)
+    ref set "mt05_arabic_evlset_v0-ref" (4 refs)
+    tst set "mt05_arabic_evlset_v0" (1 systems)
+
+NIST score = 5.6726  BLEU score = 0.2312 for system "ahd"
+
+# ------------------------------------------------------------------------
+
+Individual N-gram scoring
+        1-gram   2-gram   3-gram   4-gram   5-gram   6-gram   7-gram   8-gram   9-gram
+        ------   ------   ------   ------   ------   ------   ------   ------   ------
+ NIST:  4.6550   0.8019   0.1556   0.0400   0.0200   0.0054   0.0005   0.0000   0.0000  "ahd"
+
+ BLEU:  0.6233   0.2962   0.1683   0.0919   0.0465   0.0217   0.0096   0.0036   0.0019  "ahd"
+
+# ------------------------------------------------------------------------
+Cumulative N-gram scoring
+        1-gram   2-gram   3-gram   4-gram   5-gram   6-gram   7-gram   8-gram   9-gram
+        ------   ------   ------   ------   ------   ------   ------   ------   ------
+ NIST:  4.6550   5.4569   5.6126   5.6526   5.6726   5.6780   5.6785   5.6785   5.6785  "ahd"
+
+ BLEU:  0.6233   0.4297   0.3144   0.2312   0.1677   0.1193   0.0832   0.0562   0.0386  "ahd"
+MT evaluation scorer ended on 2013 Feb 10 at 15:05:19
+
+##################################################################
+# Baseline with Quarter Training Data
+# 25% of Train Data - All LM data
+##################################################################
+
+MT evaluation scorer began on 2013 Feb 10 at 17:45:40
+command line:  /Users/aiman/tools/mosesdecoder/scripts/generic/mteval-v11b.pl -s /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.src.ar.xml -r /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.ref.en.xml -t /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output.sgm -c
+  Evaluation of Arabic-to-English translation using:
+    src set "mt05_arabic_evlset_v0" (4 docs, 48 segs)
+    ref set "mt05_arabic_evlset_v0-ref" (4 refs)
+    tst set "mt05_arabic_evlset_v0" (1 systems)
+
+NIST score = 5.5693  BLEU score = 0.2446 for system "ahd"
+
+# ------------------------------------------------------------------------
+
+Individual N-gram scoring
+        1-gram   2-gram   3-gram   4-gram   5-gram   6-gram   7-gram   8-gram   9-gram
+        ------   ------   ------   ------   ------   ------   ------   ------   ------
+ NIST:  4.5621   0.8116   0.1401   0.0362   0.0193   0.0051   0.0018   0.0020   0.0010  "ahd"
+
+ BLEU:  0.6360   0.3197   0.1832   0.1046   0.0587   0.0328   0.0167   0.0077   0.0051  "ahd"
+
+# ------------------------------------------------------------------------
+Cumulative N-gram scoring
+        1-gram   2-gram   3-gram   4-gram   5-gram   6-gram   7-gram   8-gram   9-gram
+        ------   ------   ------   ------   ------   ------   ------   ------   ------
+ NIST:  4.5621   5.3737   5.5138   5.5500   5.5693   5.5744   5.5761   5.5781   5.5791  "ahd"
+
+ BLEU:  0.6226   0.4414   0.3269   0.2446   0.1831   0.1370   0.1011   0.0731   0.0542  "ahd"
+MT evaluation scorer ended on 2013 Feb 10 at 17:45:41
+
+
+##################################################################
+# Baseline with Half Training Data
+# 50% of Train Data - All LM data
+##################################################################
+MT evaluation scorer began on 2013 Feb 10 at 19:14:44
+command line:  /Users/aiman/tools/mosesdecoder/scripts/generic/mteval-v11b.pl -s /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.src.ar.xml -r /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.ref.en.xml -t /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output.sgm -c
+  Evaluation of Arabic-to-English translation using:
+    src set "mt05_arabic_evlset_v0" (4 docs, 48 segs)
+    ref set "mt05_arabic_evlset_v0-ref" (4 refs)
+    tst set "mt05_arabic_evlset_v0" (1 systems)
+
+NIST score = 6.0438  BLEU score = 0.2650 for system "ahd"
+
+# ------------------------------------------------------------------------
+
+Individual N-gram scoring
+        1-gram   2-gram   3-gram   4-gram   5-gram   6-gram   7-gram   8-gram   9-gram
+        ------   ------   ------   ------   ------   ------   ------   ------   ------
+ NIST:  4.9562   0.8675   0.1660   0.0357   0.0184   0.0051   0.0000   0.0000   0.0000  "ahd"
+
+ BLEU:  0.6738   0.3319   0.1960   0.1124   0.0609   0.0300   0.0116   0.0019   0.0000  "ahd"
+
+# ------------------------------------------------------------------------
+Cumulative N-gram scoring
+        1-gram   2-gram   3-gram   4-gram   5-gram   6-gram   7-gram   8-gram   9-gram
+        ------   ------   ------   ------   ------   ------   ------   ------   ------
+ NIST:  4.9562   5.8237   5.9897   6.0254   6.0438   6.0490   6.0490   6.0490   6.0490  "ahd"
+
+ BLEU:  0.6738   0.4729   0.3526   0.2650   0.1975   0.1442   0.1006   0.0611   0.0000  "ahd"
+MT evaluation scorer ended on 2013 Feb 10 at 19:14:45
+
+
+##################################################################
+# Baseline with All Training Data
+# 100% of Train Data - All LM data
+##################################################################
+
+MT evaluation scorer began on 2013 Feb 10 at 22:39:07
+command line:  /Users/aiman/tools/mosesdecoder/scripts/generic/mteval-v11b.pl -s /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.src.ar.xml -r /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.ref.en.xml -t /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output.sgm -c
+  Evaluation of Arabic-to-English translation using:
+    src set "mt05_arabic_evlset_v0" (4 docs, 48 segs)
+    ref set "mt05_arabic_evlset_v0-ref" (4 refs)
+    tst set "mt05_arabic_evlset_v0" (1 systems)
+
+NIST score = 6.3929  BLEU score = 0.2992 for system "ahd"
+
+# ------------------------------------------------------------------------
+
+Individual N-gram scoring
+        1-gram   2-gram   3-gram   4-gram   5-gram   6-gram   7-gram   8-gram   9-gram
+        ------   ------   ------   ------   ------   ------   ------   ------   ------
+ NIST:  5.1594   0.9743   0.1841   0.0518   0.0232   0.0106   0.0039   0.0028   0.0000  "ahd"
+
+ BLEU:  0.7046   0.3785   0.2324   0.1438   0.0847   0.0553   0.0354   0.0234   0.0174  "ahd"
+
+# ------------------------------------------------------------------------
+Cumulative N-gram scoring
+        1-gram   2-gram   3-gram   4-gram   5-gram   6-gram   7-gram   8-gram   9-gram
+        ------   ------   ------   ------   ------   ------   ------   ------   ------
+ NIST:  5.1594   6.1337   6.3178   6.3697   6.3929   6.4035   6.4074   6.4102   6.4102  "ahd"
+
+ BLEU:  0.6862   0.5030   0.3854   0.2992   0.2313   0.1814   0.1431   0.1137   0.0920  "ahd"
+MT evaluation scorer ended on 2013 Feb 10 at 22:39:08
+
+
+##################################################################
+# Improved Baseline with All Training Data
+# 100% of Train Data - All LM data
+##################################################################
+
+MT evaluation scorer began on 2013 Feb 10 at 23:06:21
+command line:  /Users/aiman/tools/mosesdecoder/scripts/generic/mteval-v11b.pl -s /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.src.ar.xml -r /Users/aiman/Development/mt-arabic-english-smt/data/Test/Test_data.mt05.ref.en.xml -t /Users/aiman/Development/mt-arabic-english-smt/work/evaluation/Eval.tuned-filtered.output.detokenized.sgm -c
+  Evaluation of Arabic-to-English translation using:
+    src set "mt05_arabic_evlset_v0" (4 docs, 48 segs)
+    ref set "mt05_arabic_evlset_v0-ref" (4 refs)
+    tst set "mt05_arabic_evlset_v0" (1 systems)
+
+NIST score = 6.3777  BLEU score = 0.2991 for system "ahd"
+
+# ------------------------------------------------------------------------
+
+Individual N-gram scoring
+        1-gram   2-gram   3-gram   4-gram   5-gram   6-gram   7-gram   8-gram   9-gram
+        ------   ------   ------   ------   ------   ------   ------   ------   ------
+ NIST:  5.1442   0.9743   0.1841   0.0518   0.0232   0.0106   0.0039   0.0028   0.0000  "ahd"
+
+ BLEU:  0.7032   0.3785   0.2324   0.1438   0.0847   0.0553   0.0354   0.0234   0.0174  "ahd"
+
+# ------------------------------------------------------------------------
+Cumulative N-gram scoring
+        1-gram   2-gram   3-gram   4-gram   5-gram   6-gram   7-gram   8-gram   9-gram
+        ------   ------   ------   ------   ------   ------   ------   ------   ------
+ NIST:  5.1442   6.1186   6.3027   6.3545   6.3777   6.3883   6.3922   6.3950   6.3950  "ahd"
+
+ BLEU:  0.6848   0.5024   0.3852   0.2991   0.2312   0.1813   0.1431   0.1137   0.0920  "ahd"
+MT evaluation scorer ended on 2013 Feb 10 at 23:06:22
+

@@ -1,0 +1,12 @@
+Binary write mode is NOT selected
+Scorer type: BLEU
+name: case value: true
+Loading reference from /Users/aiman/Development/mt-arabic-english-smt/data/Tune/Tune_data.mt04.50.en
+Data::m_score_type BLEU
+Data::Scorer type from Scorer: BLEU
+loading nbest from run2.best100.out.gz
+Loaded N-best lists : [Wall 0.404243 CPU 0.403241] seconds.
+Binary write mode is NOT selected
+saving the array into run2.features.dat
+saving the array into run2.scores.dat
+Stopping... : [Wall 0.472872 CPU 0.471792] seconds.

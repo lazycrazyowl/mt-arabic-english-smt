@@ -1,0 +1,2 @@
+To run the decoder, please call:
+  moses -f /Users/aiman/Development/mt-arabic-english-smt/work/tuning/mert/filtered/moses.ini -i /Users/aiman/Development/mt-arabic-english-smt/data/Tune/Tune_data.mt04.50.ar
